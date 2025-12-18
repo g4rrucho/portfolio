@@ -40,6 +40,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
       "Docker Compose",
       "AWS (EC2, EKS, ECR, S3, ...)",
       "Git",
+      "GitHub",
       "Linux",
     ],
   },

@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import PROJECTS from "@/constants/projects";
 
 const Projects = () => {
@@ -8,7 +9,7 @@ const Projects = () => {
           Projects
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {PROJECTS.map((project, index) => (
             <div
               key={index}
@@ -25,12 +26,7 @@ const Projects = () => {
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full"
-                    >
-                      {tech}
-                    </span>
+                    <Badge key={techIndex}>{tech}</Badge>
                   ))}
                 </div>
 
