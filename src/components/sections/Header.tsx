@@ -1,5 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
-import { Contact, FileStack, Home, Menu, User, Wrench } from "lucide-react";
+import {
+  Contact,
+  FileStack,
+  Heart,
+  Home,
+  Menu,
+  User,
+  Wrench,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -84,9 +92,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -107,17 +113,14 @@ const Header = () => {
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {isScrolled ? (
-            <Button
-              onClick={() => scrollToSection("hero")}
-              variant="link"
-              className="text-xl transition-all h-10 w-10 duration-300 font-bold hover:no-underline"
-            >
-              <Home className="h-6 w-6 dark:text-white" />
-            </Button>
-          ) : (
-            <div className="h-10 w-10"></div>
-          )}
+          <Button
+            onClick={() => scrollToSection("hero")}
+            variant="link"
+            className="text-xl transition-all h-10 duration-300 font-bold hover:no-underline"
+          >
+            <Heart fill="blue" className="h-6 w-6" />
+            <span>Guilherme Garrucho</span>
+          </Button>
 
           <DesktopNav scrollToSection={scrollToSection} />
           <MobileNav scrollToSection={scrollToSection} />
