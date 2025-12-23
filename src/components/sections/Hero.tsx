@@ -9,10 +9,6 @@ const Hero = () => {
     if (element) element.scrollIntoView({ behavior: "smooth" });
   }, []);
 
-  const onDownloadPress = useCallback(() => {
-    console.info("TODO Download Resume");
-  }, []);
-
   return (
     <section
       id="hero"
