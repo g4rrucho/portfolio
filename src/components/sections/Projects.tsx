@@ -1,18 +1,17 @@
 import PROJECTS, { type Project } from "@/constants/projects";
 import { Badge } from "@/components/ui/badge";
-import Card from "@/components/Card";
+import { Card } from "@/components/ui/card";
 
-const Project: React.FC<Project & { stripColor?: string }> = ({
+const Project: React.FC<Project> = ({
   title,
   description,
   technologies,
   githubUrl,
   liveUrl,
   upcoming,
-  stripColor,
 }) => {
   return (
-    <Card stripClassName={stripColor}>
+    <Card>
       <div className="p-6 flex-1 flex flex-col">
         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
           {title}
@@ -87,7 +86,10 @@ const Project: React.FC<Project & { stripColor?: string }> = ({
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section
+      id="projects"
+      className="min-h-screen py-20 bg-gray-50 dark:bg-gray-800"
+    >
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
           Projects

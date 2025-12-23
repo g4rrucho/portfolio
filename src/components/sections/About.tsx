@@ -1,72 +1,87 @@
-import { ChevronRight } from "lucide-react";
+import AwsIcon from "@/components/icons/AwsIcon";
+import { Card, CardContent } from "@/components/ui/card";
+
+import {
+  SiDocker,
+  SiExpo,
+  SiGithub,
+  SiLinux,
+  SiMongodb,
+  SiMysql,
+  SiNestjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from "@icons-pack/react-simple-icons";
+
+const TECHS = [
+  { name: "React", icon: SiReact, iconColor: "#61DAFB" },
+  { name: "React Native", icon: SiReact, iconColor: "#61DAFB" },
+  { name: "Expo", icon: SiExpo, iconColor: "#000020" },
+  { name: "TypeScript", icon: SiTypescript, iconColor: "#3178C6" },
+  { name: "Tailwind", icon: SiTailwindcss, iconColor: "#38B2AC" },
+  { name: "Node.js", icon: SiNodedotjs, iconColor: "#339933" },
+  { name: "NestJS", icon: SiNestjs, iconColor: "#E0234E" },
+  { name: "Docker", icon: SiDocker, iconColor: "#2496ED" },
+  { name: "AWS", icon: AwsIcon, iconColor: "#FF9900" },
+  { name: "Git", icon: SiGithub, iconColor: "#181717" },
+  { name: "Linux", icon: SiLinux, iconColor: "#181717" },
+  { name: "MongoDB", icon: SiMongodb, iconColor: "#47A248" },
+  { name: "MySQL", icon: SiMysql, iconColor: "#4479A1" },
+  { name: "PostgreSQL", icon: SiPostgresql, iconColor: "#336791" },
+];
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
-          About Me
-        </h2>
-
-        <div className="max-w-3xl mx-auto">
-          <div className="space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed">
-            <p className="text-lg">
-              I'm a passionate Software Engineer with a strong foundation in
-              modern web technologies. My journey in software development began
-              with a curiosity about how things work under the hood, which led
-              me to explore both frontend and backend development and landed me
-              my first role designing an entire accounting application from the
-              ground up.
+    <section
+      id="about"
+      className="min-h-screen flex flex-col items-center  justify-center bg-background"
+    >
+      <div className="container mx-auto px-6 py-20 flex-1 flex flex-col justify-center items-center gap-8">
+        <div className="flex flex-col gap-4 max-w-3xl">
+          <h1 className="text-3xl font-bold text-center">What I Do</h1>
+          <div className="flex flex-col gap-4 text-lg text-center leading-relaxed">
+            <p>
+              A Software Engineer with 4+ years of experience blending web &
+              mobile development expertise with cutting-edge technologies. I
+              build modern applications with React, React Native, and TypeScript
+              on the frontend, and Node.js with NestJS on the backend.
             </p>
-
-            <p className="text-lg">
-              I specialize in building scalable web applications using React,
-              React Native, TypeScript, and Node.js. On the frontend, I focus on
-              creating intuitive user interfaces with attention to detail and
-              performance. On the backend, I work with NestJS and various
-              databases to build robust APIs and services.
+            <p>
+              My approach combines a strong foundation in computer science
+              fundamentals with practical experience in cloud infrastructure,
+              containerization, and agile development methodologies.
             </p>
-
-            <p className="text-lg">
-              Beyond web development, I have a solid understanding of data
-              structures and algorithms, having implemented various structures
-              in JavaScript and C, including Binary Search Trees, HashMaps, and
-              Priority Queues. This foundation in both high-level and low-level
-              programming helps me write efficient, well-optimized code.
+            <p>
+              What sets me apart is my ability to see the bigger picture while
+              maintaining attention to detail. Whether I'm implementing complex
+              data structures, designing scalable APIs, or optimizing
+              application performance, I'm driven by the challenge of turning
+              intricate technical problems into elegant, user-friendly
+              solutions.
             </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-4">
+          <h1 className="text-xl font-bold text-center">Tech I Work With</h1>
+          <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-7 gap-4">
+            {TECHS.map(({ icon, name, iconColor }, index) => {
+              const Icon = icon;
 
-            <p className="text-lg">
-              I'm also experienced with DevOps practices, using Docker for
-              containerization and AWS EC2 for deployment, since I've
-            </p>
-
-            <div className="mt-8 p-6 bg-blue-50 dark:bg-gray-800 rounded-lg">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                What I'm interested in:
-              </h3>
-
-              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start">
-                  <ChevronRight className="text-blue-500 dark:text-blue-400 mr-2" />
-                  <span>Building performant, accessible mobile & web applications</span>
-                </li>
-                <li className="flex items-start">
-                  <ChevronRight className="text-blue-500 dark:text-blue-400 mr-2" />
-                  <span>
-                    Learning new technologies and staying current with industry
-                    trends
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <ChevronRight className="text-blue-500 dark:text-blue-400 mr-2" />
-                  <span>Exploring system design and scalable architecture</span>
-                </li>
-                <li className="flex items-start">
-                  <ChevronRight className="text-blue-500 dark:text-blue-400 mr-2" />
-                  <span>Contributing to open source projects</span>
-                </li>
-              </ul>
-            </div>
+              return (
+                <Card
+                  className="gap-4 p-4 w-32 text-center bg-gray-100 border-gray-100 dark:bg-gray-700 dark:border-gray-700 rounded-lg shadow-none hover:-translate-y-2 transition-all duration-300"
+                  key={`${name}-${index}`}
+                >
+                  <CardContent className="flex flex-col items-center gap-2 p-0">
+                    <Icon className="w-8 h-8" color={iconColor} />
+                    <p className="text-nowrap">{name}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </div>
