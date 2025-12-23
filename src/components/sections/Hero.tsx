@@ -39,7 +39,7 @@ const Hero = () => {
             experience, clean code & scalability, leveraging AI innovation.
           </p>
 
-          <div className="flex flex-col w-80 sm:flex-row  gap-4 justify-center">
+          <div className="flex flex-col w-80 sm:flex-row items-center gap-4 justify-center">
             <Button
               className="px-8 py-5 rounded-full"
               onClick={() => scrollToSection("projects")}
@@ -47,13 +47,15 @@ const Hero = () => {
               <Layers />
               View Projects
             </Button>
-            <Button
-              className="px-8 py-5 rounded-full"
-              variant="ghost"
-              onClick={onDownloadPress}
-            >
-              <Download />
-              Download Resume
+            <Button className="px-8 py-5 rounded-full" variant="ghost">
+              <a
+                className="flex gap-2 items-center"
+                href="/portfolio/resume.pdf"
+                download="Guilherme_Garrucho_Resume.pdf"
+              >
+                <Download />
+                Download Resume
+              </a>
             </Button>
           </div>
         </div>
