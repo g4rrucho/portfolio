@@ -11,14 +11,17 @@ const PROJECTS: Project[] = [
   {
     title: "FitGram",
     description:
-      "A comprehensive fitness tracking web application that helps users monitor their workouts, track progress, and stay motivated. Features user authentication, workout logging, and email notifications via Resend service.",
+      "A comprehensive fitness tracking cross-platform application that helps personal trainers manage their clients' workouts, track progress, and stay motivated. Features user authentication, workout logging, and email notifications via Resend service.",
     technologies: [
       "React",
+      "Expo",
       "TypeScript",
       "NestJS",
       "MongoDB",
       "Mongoose",
       "Resend",
+      "AWS",
+      "Docker",
     ],
     upcoming: true,
   },

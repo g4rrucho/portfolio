@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Contact, Layers, User } from "lucide-react";
+import { Briefcase, Contact, Layers, User } from "lucide-react";
 import { Link } from "@radix-ui/react-navigation-menu";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 
@@ -16,6 +16,7 @@ import type { IconComponent } from "@/types/icon";
 const NAV_ITEMS = [
   { id: "about", label: "About", icon: User },
   { id: "projects", label: "Projects", icon: Layers },
+  { id: "work-experience", label: "Experience", icon: Briefcase },
   { id: "contact", label: "Contact", icon: Contact },
 ];
 
@@ -67,21 +68,19 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["hero", ...NAV_ITEMS.map((item) => item.id)];
+      let currentSection = "hero";
 
       for (const id of sections) {
         const element = document.getElementById(id);
         if (element) {
           const rect = element.getBoundingClientRect();
-
-          if (
-            rect.top <= window.innerHeight / 3 &&
-            rect.bottom >= window.innerHeight / 3
-          ) {
-            setActiveSection(id);
-            break;
+          if (rect.top <= window.innerHeight / 2) {
+            currentSection = id;
           }
         }
       }
+
+      setActiveSection(currentSection);
     };
 
     handleScroll();
@@ -93,7 +92,7 @@ const Header = () => {
     <div
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        "flex items-center justify-center sm:justify-between sm:px-12 md:px-24  h-16"
+        "flex items-center justify-center sm:justify-between sm:px-12 md:px-24  h-16",
       )}
     >
       <div className="h-10 w-10 hidden sm:block" />
@@ -107,16 +106,23 @@ const Header = () => {
               <NavigationMenuItem key={`${label}-${id}`}>
                 <NavigationMenuLink
                   className={cn(
-                    "flex flex-row items-center gap-2 rounded-xl px-4 pl-3",
+                    "flex flex-row items-center gap-2 rounded-xl px-3 transition-all duration-300",
                     isActive
-                      ? "bg-primary text-primary-foreground"
-                      : "hover:bg-accent"
+                      ? "bg-primary text-primary-foreground pr-4"
+                      : "hover:bg-accent sm:pr-4",
                   )}
                   asChild
                 >
                   <Link href={`#${id}`}>
                     <Icon color={isActive ? "white" : "currentColor"} />
-                    <span>{label}</span>
+                    <span
+                      className={cn(
+                        "overflow-hidden transition-all duration-300 sm:max-w-24 sm:opacity-100",
+                        isActive ? "max-w-24 opacity-100" : "max-w-0 opacity-0",
+                      )}
+                    >
+                      {label}
+                    </span>
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -128,7 +134,7 @@ const Header = () => {
       <div
         className={cn(
           "p-2 px-3 rounded-xl border border-transparent hidden sm:block",
-          isScrolled && "bg-background border-gray-200 dark:border-gray-800"
+          isScrolled && "bg-background border-gray-200 dark:border-gray-800",
         )}
       >
         <div className="flex flex-row gap-4 ">
